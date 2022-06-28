@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Login";
+
+}
+<div class="container-form">
+    <form class="form">
+        <h1>Log in</h1>
+        <input class="form-input" id="email" name="email" type="email" placeholder=" "/>
+        <label class="form-label email" for="email">Email *</label>
+        <input class="form-input" id="password" name="password" type="password" placeholder=" "/>
+        <label class="form-label password" for="password">Password *</label>
+        <input class="form-submit" type="submit" value ="Log in" />
+        <a class="form-forgot--password" asp-action="ForgotPassword">Forgot your password?</a>
+        <hr/>
+        <a class="form-action" asp-action="Register">Dont have account?<span class="underline">Sign in</span></a>
+    </form>
+</div>
+
+

@@ -1,0 +1,94 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* specific formatting */
+
+h1 {
+    color: blue;    
+    margin-bottom: 30px;
+    cursor: default;
+}
+
+.underline {
+    text-decoration: underline;
+    color: blue;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.email {
+    width: 51px;
+}
+
+.password {
+    width: 76px;
+}
+
+/* End */
+
+.form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input, .form-submit {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 11px 16px;
+    border-color: rgb(127, 133, 141);
+}
+
+.form-label {
+    position: relative;
+    left: 20px;
+    bottom: 35px;
+    cursor: text;
+    transition: bottom 200ms ease-in;
+    text-align: center;
+}
+
+.form-input:focus + .form-label, .form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+    bottom: 60px;
+    background: #FFFFFF;
+}
+
+.form-submit {
+    background: #FFFFFF;
+    border-color: blue;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    opacity: 0.5;
+}
+
+.form-forgot--password, .form-action {
+    color: black;
+}
+
+.form-action {
+    text-align: center;
+    text-decoration: none;
+}
