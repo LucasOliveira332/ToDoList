@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using ToDoList.Contracts;
+using ToDoList.Data;
+using ToDoList.Repositories;
 
 namespace SalesMvc
 {
@@ -12,10 +15,10 @@ namespace SalesMvc
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<SalesMvcContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("SalesMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesMvcContext' not found.")));
             services.AddControllersWithViews();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddScoped<DbSession>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
@@ -35,7 +38,7 @@ namespace SalesMvc
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Login}/{id?}");
         }
     }
 
@@ -62,9 +65,6 @@ namespace SalesMvc
             app.Run();
 
             return WebAppBuilder;
-
         }
     }
-
-
 }

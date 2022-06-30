@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="nav-bar">
+        <ul>
+            <li class="nav-bar--logo"><a><img  src=~/img/logo.png/></a></li>
+            <li class="nav-bar--item"><a asp-controller="User" asp-action="">Login</a></li>
+        </ul>
+    </div>
     @RenderBody()
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

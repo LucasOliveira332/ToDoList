@@ -6,17 +6,18 @@ namespace ToDoList.Entities
     {
         public int Id { get; set; }
 
+        [MinLength(3, ErrorMessage = "At least 3 characters")]
+        [MaxLength(40, ErrorMessage = "Maximum 40 characters")]
+        public string? Name { get; set; }
 
-        [EmailAddress(ErrorMessage = "Please enter a valid email")]
+        [EmailAddress(ErrorMessage = "Enter a valid email")]
         public string? Email { get; set; }
-
 
         [Required(ErrorMessage = "This field is required")]
         [MinLength(6, ErrorMessage = "At least 6 digits")]
         [MaxLength(32, ErrorMessage = "Maximum 32 digits")]
         public string? Password { get; set; }
-
-
-        public string? PasswordConfirm { get; set; }
+        
+        public string? PasswordConfirmation { get; set; }
     }
 }

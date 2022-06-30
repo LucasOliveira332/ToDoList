@@ -14,35 +14,55 @@ body {
     height: 100vh;
 }
 
-/* specific formatting */
+/*
+    Header
+*/
 
-h1 {
-    color: blue;    
+    
+
+/*
+    End
+*/
+
+
+
+/* 
+    specific formatting 
+*/
+
+.container-form h1 {
+    color: blue;
     margin-bottom: 30px;
     cursor: default;
 }
 
-.underline {
+.container-form .underline {
     text-decoration: underline;
     color: blue;
 }
 
-hr {
+.container-form hr {
     border: none;
     border-top: 1px solid black;
     margin-top: 40px;
     margin-bottom: 20px;
 }
 
-.email {
+.container-form .email {
     width: 51px;
 }
 
-.password {
+.container-form .password {
     width: 76px;
 }
 
-/* End */
+/* 
+    End 
+*/
+
+/* 
+    Form Log in 
+*/
 
 .form {
     width: 400px;
@@ -92,3 +112,7 @@ hr {
     text-align: center;
     text-decoration: none;
 }
+
+/*
+    End
+*/

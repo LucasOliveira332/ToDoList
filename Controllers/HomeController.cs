@@ -1,32 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using ToDoList.Models;
+using ToDoList.Contracts;
+using ToDoList.Entities;
 
 namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUserRepository _userRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUserRepository userRepository)
         {
-            _logger = logger;
+            _userRepository = userRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            User user;
+            if (id.HasValue)
+            {
+                user = _userRepository.FindById((int)id);
+                return View(user);
+            }
+            return RedirectToAction("Login","User");
         }
     }
 }

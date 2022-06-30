@@ -1,0 +1,19 @@
+﻿@model ToDoList.Entities.User
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="container-form">
+    <form asp-action="Login" class="form" >
+        <h1>Log in</h1>
+        <input class="form-input" id="email" name="email" type="email" value="@Model?.Email" placeholder=" "/>
+        <label class="form-label email" for="email">Email *</label>
+        <input class="form-input" id="password" name="password" type="password" value="@Model?.Password" placeholder=" "/>
+        <label class="form-label password" for="password">Password *</label>
+        <input class="form-submit" type="submit" value ="Log in" />
+        <a asp-action="ForgotPassword" class="form-forgot--password">Forgot your password?</a>
+        <hr/>
+        <a asp-action="Register" class="form-action">Dont have account?<span class="underline">Sign in</span></a>
+    </form>
+</div>
+
+
