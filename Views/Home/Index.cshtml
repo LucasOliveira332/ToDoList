@@ -4,13 +4,38 @@
 @model ToDoList.Entities.User
 <div class="nav-bar">
     <div class="nav-logo">
-        <a asp-action="Index"><img src="~/img/logo.png"/></a>
+        <a asp-action="Index"><img src="~/img/logo.png" /></a>
     </div>
     <div class="nav-link">
-        <span>UserName: @Model.Name </span>
-        <span>Email:  @Model.Email</span>
+        <div class="info">🧍‍ @Model.Name </div>
+        <span class="info">Email:  @Model.Email</span>
+        <a asp-action="Index" asp-route-id="10">❌</a>
     </div>
+</div>
 
+<div class="task-body">
+    <form class="form-task">
+        <div class="task">
+            <input type="text" name="title" id="title" placeholder="Title" />
+            <textarea name="description" id="description" placeholder="Description"></textarea>
+            <div class="utilities">
+                <a href="#">📆</a>
+                <a>Cancel</a>
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+    <form class="form-task">
+        <div class="task">
+            <input type="text" name="title" id="title" placeholder="Title" />
+            <textarea name="description" id="description" placeholder="Description"></textarea>
+            <div class="utilities">
+                <a href="#">📆</a>
+                <a>Cancel</a>
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
 </div>
 
 

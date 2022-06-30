@@ -8,12 +8,13 @@ body {
     background: white;
 }
 
-.container-form {
+.form-body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 85vh;
 }
+
 
 /*
     Header
@@ -53,29 +54,33 @@ body {
     specific formatting 
 */
 
-.container-form h1 {
+.info{
+    color: white;
+}
+
+.form h1 {
     color: blue;
     margin-bottom: 30px;
     cursor: default;
 }
 
-.container-form .underline {
+.form .underline {
     text-decoration: underline;
     color: blue;
 }
 
-.container-form hr {
+.form hr {
     border: none;
     border-top: 1px solid black;
     margin-top: 40px;
     margin-bottom: 20px;
 }
 
-.container-form .email {
+.form .email {
     width: 51px;
 }
 
-.container-form .password {
+.form .password {
     width: 76px;
 }
 
@@ -135,6 +140,44 @@ body {
     text-align: center;
     text-decoration: none;
 }
+
+/*
+    End
+*/
+
+/*
+    Card 
+*/
+.task-body{
+    margin: 0 auto;
+    width: 600px;
+}
+
+.form-task {
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 8px;
+    border-color: #d2d2d2;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.form-task input, input:focus, textarea,textarea:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    font-family: 'Trebuchet MS';
+    font-size: 1em;
+}
+
+.form-task textarea{
+    margin-top: 20px;
+}
+
+
 
 /*
     End
