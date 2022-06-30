@@ -1,17 +1,29 @@
 ﻿@model ToDoList.Entities.User
+
 @{
     ViewData["Title"] = "Login";
 }
+
+<div class="nav-bar">
+    <div class="nav-logo">
+        <a asp-controller="Home" asp-action="Index"><img src=/img/logo.png /></a>
+    </div>
+    <div class="nav-link">
+        <a class="login" asp-controller="User" asp-action="Login">Login in</a>
+        <a class="register" asp-controller="User" asp-action="Register">Start for FREE</a>
+    </div>
+</div>
+
 <div class="container-form">
-    <form asp-action="Login" class="form" >
+    <form asp-action="Login" class="form">
         <h1>Log in</h1>
-        <input class="form-input" id="email" name="email" type="email" value="@Model?.Email" placeholder=" "/>
-        <label class="form-label email" for="email">Email *</label>
-        <input class="form-input" id="password" name="password" type="password" value="@Model?.Password" placeholder=" "/>
-        <label class="form-label password" for="password">Password *</label>
-        <input class="form-submit" type="submit" value ="Log in" />
+        <input class="form-input" asp-for="@Model.Email" value="@Model?.Email" placeholder=" " />
+        <label class="form-label email" asp-for="@Model!.Email"></label>
+        <input class="form-input" asp-for="@Model!.Password" type="password" value="@Model?.Password" placeholder=" " />
+        <label class="form-label password" asp-for="@Model!.Password"></label>
+        <input class="form-submit" type="submit" value="Log in" />
         <a asp-action="ForgotPassword" class="form-forgot--password">Forgot your password?</a>
-        <hr/>
+        <hr />
         <a asp-action="Register" class="form-action">Dont have account?<span class="underline">Sign in</span></a>
     </form>
 </div>

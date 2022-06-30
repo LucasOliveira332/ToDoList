@@ -13,15 +13,21 @@ namespace ToDoList.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpGet]
         public IActionResult Index(int? id)
         {
-            User user;
-            if (id.HasValue)
+            if(id.HasValue)
             {
-                user = _userRepository.FindById((int)id);
+                User user = _userRepository.FindById((int)id);
+                
+                if(user == null)
+                {
+                    return RedirectToAction("Login", "User");
+                }
+
                 return View(user);
             }
-            return RedirectToAction("Login","User");
+            return RedirectToAction("Login", "User");
         }
     }
 }

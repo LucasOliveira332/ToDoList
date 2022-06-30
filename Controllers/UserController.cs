@@ -26,10 +26,13 @@ namespace ToDoList.Controllers
             {
                 return View(user);
             }
-            
-            if (_userRepository.UserValidation(user))
-            {
-                return RedirectToAction("Index","Home",user.Id);
+
+            User userValid = _userRepository.UserValidation(user);
+
+            if(userValid != null){
+                user = new User() { Id = userValid.Id };
+                user.Id = userValid.Id;
+                return RedirectToAction("Index","Home", user);
             }
 
             return View(user);

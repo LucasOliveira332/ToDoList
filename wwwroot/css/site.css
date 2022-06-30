@@ -5,20 +5,43 @@
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: white;
 }
 
 .container-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
 }
 
 /*
     Header
 */
 
-    
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #0C2239;
+    padding: 5px;
+}
+
+.nav-logo img {
+    width: 200px;
+}
+
+.nav-link .login, .register {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link .register{
+    background: blue;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-left: 20px;
+}
 
 /*
     End
@@ -88,7 +111,7 @@ body {
 }
 
 .form-input:focus + .form-label, .form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
-    bottom: 60px;
+    bottom: 55px;
     background: #FFFFFF;
 }
 

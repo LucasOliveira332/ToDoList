@@ -29,7 +29,7 @@ namespace ToDoList.Repositories
 
             return user;
         }
-        public bool UserValidation(User user)
+        public User UserValidation(User user)
         {
             User validation;
 
@@ -44,14 +44,7 @@ namespace ToDoList.Repositories
                validation = _session.Connection.QueryFirstOrDefault<User>(query, paranmeters);
             }
 
-            user.Id = validation.Id;
-
-            if(validation == null)
-            {
-                return false;
-            }
-
-            return true;
+            return validation;
         }
     }
 }

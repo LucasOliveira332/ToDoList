@@ -1,7 +1,16 @@
-﻿@model ToDoList.Entities.User 
-
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewData["Title"] = "Login";
 }
+@model ToDoList.Entities.User
+<div class="nav-bar">
+    <div class="nav-logo">
+        <a asp-action="Index"><img src="~/img/logo.png"/></a>
+    </div>
+    <div class="nav-link">
+        <span>UserName: @Model.Name </span>
+        <span>Email:  @Model.Email</span>
+    </div>
 
-<h1>Welcome - @Model.Email</h1>
+</div>
+
+
