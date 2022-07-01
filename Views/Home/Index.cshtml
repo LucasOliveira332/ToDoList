@@ -1,5 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Login";
+    DateTime date = DateTime.Now;
+    var StringDate = date.ToString("yyyy-MM-dd");
 }
 @model ToDoList.Entities.User
 <div class="nav-bar">
@@ -7,35 +9,34 @@
         <a asp-action="Index"><img src="~/img/logo.png" /></a>
     </div>
     <div class="nav-link">
-        <div class="info">🧍‍ @Model.Name </div>
-        <span class="info">Email:  @Model.Email</span>
-        <a asp-action="Index" asp-route-id="10">❌</a>
+        <div class="info"><i class="fa-regular fa-user"></i>@Model.Name </div>
+        <span class="info email"><i class="fa-regular fa-envelope"></i>@Model.Email</span>
+        <a asp-action="Index" asp-route-id="10"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i></a>
     </div>
 </div>
 
-<div class="task-body">
-    <form class="form-task">
-        <div class="task">
-            <input type="text" name="title" id="title" placeholder="Title" />
-            <textarea name="description" id="description" placeholder="Description"></textarea>
-            <div class="utilities">
-                <a href="#">📆</a>
-                <a>Cancel</a>
-                <input type="submit" value="Create" />
-            </div>
+<form class="form-task space" asp-action="AddTask">
+    <input class="title" placeholder="Title" />
+    <textarea class="description" placeholder="Description"></textarea>
+    <div class="utilities">
+            <input type="date" onkeydown="return false" value="@StringDate"/>
+        <div>
+            <a class="cancel">Cancel</a>
+            <input class="add" type="submit" value="+" />
         </div>
-    </form>
-    <form class="form-task">
-        <div class="task">
-            <input type="text" name="title" id="title" placeholder="Title" />
-            <textarea name="description" id="description" placeholder="Description"></textarea>
-            <div class="utilities">
-                <a href="#">📆</a>
-                <a>Cancel</a>
-                <input type="submit" value="Create" />
-            </div>
-        </div>
-    </form>
-</div>
+    </div>
+</form>
+<form class="form-task">
+    <div>
+        <button class="btn" type="submit">
+            <i class="fa-regular fa-circle fa-xl"></i>
+            <i class="fa-regular fa-circle-check fa-xl"></i>
+        </button>
+        <span class="title task"> Go to the supermarket</span>
+        <span class="date">⏱ Today</span>
+    </div>
+    <span class="description">buy potato, rice</span>
+</form>
+
 
 

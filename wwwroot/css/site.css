@@ -1,11 +1,11 @@
-*{
-    padding:0;
-    margin:0;
+* {
+    padding: 0;
+    margin: 0;
 }
 
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: white;
+    font-family: 'Fredoka One', cursive;
 }
 
 .form-body {
@@ -13,6 +13,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 85vh;
+}
+
+input, textarea {
+    font-family: 'Fredoka One', cursive;
 }
 
 
@@ -37,7 +41,7 @@ body {
     color: white;
 }
 
-.nav-link .register{
+.nav-link .register {
     background: blue;
     border-radius: 5px;
     padding: 12px 20px;
@@ -54,8 +58,11 @@ body {
     specific formatting 
 */
 
-.info{
+.info {
     color: white;
+}
+.info.email{
+    margin-right: 10px;
 }
 
 .form h1 {
@@ -78,6 +85,7 @@ body {
 
 .form .email {
     width: 51px;
+    margin-right: 10px;
 }
 
 .form .password {
@@ -148,36 +156,120 @@ body {
 /*
     Card 
 */
-.task-body{
-    margin: 0 auto;
-    width: 600px;
+
+.form-task.space{
+    margin-top: 40px;
 }
 
 .form-task {
-    margin-top: 50px;
-    border: 1px solid black;
+    margin: 0px auto;
+    width: 50%;
+    margin-top: 10px;
+    border: 1px solid #d2d2d2;
     border-radius: 8px;
-    border-color: #d2d2d2;
-}
-
-.task{
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
-.form-task input, input:focus, textarea,textarea:focus{
-    box-shadow: 0 0 0 0;
+
+.form-task .title , .title::placeholder{
+    color: #555555;
+}
+
+.form-task textarea {
+     resize: none
+}
+
+.form-task .description {
+    margin-top: 20px;
+    color: #757575;
+}
+
+.form-task .utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-task .cancel, .form-task .add {
+    color: #d2d2d2;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form-task .add{
+    background: #00ff00;
+    padding: 5px 20px;
+    color: white;
+}
+
+.form-task input, textarea {
     border: 0 none;
     outline: 0;
-    font-family: 'Trebuchet MS';
     font-size: 1em;
 }
 
-.form-task textarea{
-    margin-top: 20px;
+.form-task input[type="date"] {
+    background: #6c6cff;
+    padding: 4px;
+    border-radius: 5px;
+    color: white;
+}
+.form-task ::-webkit-calendar-picker-indicator{
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
 }
 
+.form-task .btn {
+    border: none;
+    cursor: pointer;
+}
 
+.form-task .date{
+    color: white;
+    background: #ffd68c;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.form-task .title.task {
+    margin-left: 25px;
+}
+
+/*
+    End
+*/
+
+/*
+    Icons
+*/
+
+.fa-arrow-right-from-bracket {
+    color: red;
+}
+.fa-user, .fa-envelope {
+    padding-right: 2em;
+    color: white;
+}
+
+.fa-circle, .fa-circle-check {
+    color: green;
+    position: absolute;
+    top:337px;
+    z-index: 10;
+}
+
+.fa-circle-check{
+    color: white;
+    z-index: 1;
+}
+
+.fa-circle:hover + .fa-circle-check{
+    color: green;
+}
 
 /*
     End
