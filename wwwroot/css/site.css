@@ -61,9 +61,10 @@ input, textarea {
 .info {
     color: white;
 }
-.info.email{
-    margin-right: 10px;
-}
+
+    .info.email {
+        margin-right: 10px;
+    }
 
 .form h1 {
     color: blue;
@@ -136,9 +137,9 @@ input, textarea {
     cursor: pointer;
 }
 
-.form-submit:hover {
-    opacity: 0.5;
-}
+    .form-submit:hover {
+        opacity: 0.5;
+    }
 
 .form-forgot--password, .form-action {
     color: black;
@@ -157,7 +158,7 @@ input, textarea {
     Card 
 */
 
-.form-task.space{
+.form-task.space {
     margin-top: 40px;
 }
 
@@ -170,74 +171,72 @@ input, textarea {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    position: relative;
 }
 
-.form-task .title , .title::placeholder{
-    color: #555555;
-}
+    .form-task .title, .title::placeholder {
+        color: #555555;
+    }
 
-.form-task textarea {
-     resize: none
-}
+    .form-task textarea {
+        resize: none
+    }
 
-.form-task .description {
-    margin-top: 20px;
-    color: #757575;
-}
+    .form-task .description {
+        margin-top: 20px;
+        color: #757575;
+    }
 
-.form-task .utilities {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .form-task .utilities {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.form-task .cancel, .form-task .add {
-    color: #d2d2d2;
-    border-radius: 5px;
-    padding: 5px;
-    cursor: pointer;
-}
+    .form-task .cancel, .form-task .add {
+        color: #d2d2d2;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+    }
 
-.form-task .add{
-    background: #00ff00;
-    padding: 5px 20px;
-    color: white;
-}
+    .form-task .add {
+        background: #00ff00;
+        padding: 5px 20px;
+        color: white;
+    }
 
-.form-task input, textarea {
-    border: 0 none;
-    outline: 0;
-    font-size: 1em;
-}
+    .form-task input, textarea {
+        border: 0 none;
+        outline: 0;
+        font-size: 1em;
+    }
 
-.form-task input[type="date"] {
-    background: #6c6cff;
-    padding: 4px;
-    border-radius: 5px;
-    color: white;
-}
-.form-task ::-webkit-calendar-picker-indicator{
-    background-color: white;
-    padding: 5px;
-    border-radius: 5px;
-}
+        .form-task input[type="date"] {
+            background: #6c6cff;
+            padding: 4px;
+            border-radius: 5px;
+            color: white;
+        }
 
-.form-task .btn {
-    border: none;
-    cursor: pointer;
-}
+    .form-task ::-webkit-calendar-picker-indicator {
+        background-color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
 
-.form-task .date{
-    color: white;
-    background: #ffd68c;
-    border-radius: 5px;
-    padding: 3px;
-    margin-left: 10px;
-}
+    .form-task .btn {
+        border: none;
+        cursor: pointer;
+    }
 
-.form-task .title.task {
-    margin-left: 25px;
-}
+    .form-task .date {
+        border-radius: 5px;
+    }
+
+    .form-task .title.task {
+        margin-left: 25px;
+    }
 
 /*
     End
@@ -250,6 +249,7 @@ input, textarea {
 .fa-arrow-right-from-bracket {
     color: red;
 }
+
 .fa-user, .fa-envelope {
     padding-right: 2em;
     color: white;
@@ -258,19 +258,41 @@ input, textarea {
 .fa-circle, .fa-circle-check {
     color: green;
     position: absolute;
-    top:337px;
+    margin-top: -1px;
     z-index: 10;
 }
 
-.fa-circle-check{
+.fa-circle-check {
     color: white;
     z-index: 1;
 }
 
-.fa-circle:hover + .fa-circle-check{
+.fa-circle:hover + .fa-circle-check {
     color: green;
 }
 
 /*
     End
 */
+
+
+.separet {
+    display: grid;
+    grid-template-columns: auto 1fr 2fr;
+    align-items: center;
+}
+
+.delete {
+    position: absolute;
+    top: 30px;
+    background: none;
+    border: none;
+    right: 20px;
+    font-size: 2.2em;
+    color: #f19292;
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: #ff0000;
+}

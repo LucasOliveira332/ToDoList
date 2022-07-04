@@ -4,7 +4,7 @@ namespace ToDoList.Contracts
 {
     public interface IUserRepository
     {
-        User UserValidation(User user);
+        User UserValidation(string email, string password);
         User FindById(int id);
     }
 }

@@ -20,22 +20,20 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(User user)
+        public IActionResult Login(string email, string password)
         {
             if (!ModelState.IsValid)
             {
-                return View(user);
+                return View(email, password);
             }
 
-            User userValid = _userRepository.UserValidation(user);
+            User userValid = _userRepository.UserValidation(email, password);
 
             if(userValid != null){
-                user = new User() { Id = userValid.Id };
-                user.Id = userValid.Id;
-                return RedirectToAction("Index","Home", user);
+                return RedirectToAction("Index","Home", new {UserId = userValid.Id});
             }
 
-            return View(user);
+            return View(email,password);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using ToDoList.Contracts;
+﻿using ToDoList.Contracts;
 using ToDoList.Data;
 using ToDoList.Repositories;
 
@@ -19,6 +18,7 @@ namespace SalesMvc
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddScoped<DbSession>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICardRepository, CardRepository>();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)

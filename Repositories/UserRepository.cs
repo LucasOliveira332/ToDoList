@@ -22,14 +22,10 @@ namespace ToDoList.Repositories
 
             var paranmeters = new { Id = id };
 
-            using (_session.Connection)
-            {
-                user = _session.Connection.QueryFirstOrDefault<User>(query,paranmeters);
-            }
-
+            user = _session.Connection.QueryFirstOrDefault<User>(query,paranmeters);
             return user;
         }
-        public User UserValidation(User user)
+        public User UserValidation(string email, string password)
         {
             User validation;
 
@@ -37,13 +33,10 @@ namespace ToDoList.Repositories
                             "WHERE Email = @Email " +
                             "AND Password = @Password";
 
-            var paranmeters = new {Email = user.Email, Password = user.Password};
+            var paranmeters = new {Email = email, Password = password };
 
-            using (_session.Connection)
-            {
-               validation = _session.Connection.QueryFirstOrDefault<User>(query, paranmeters);
-            }
-
+           
+            validation = _session.Connection.QueryFirstOrDefault<User>(query, paranmeters);
             return validation;
         }
     }

@@ -1,17 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Login";
-    DateTime date = DateTime.Now;
-    var StringDate = date.ToString("yyyy-MM-dd");
+    string date = DateTime.Now.ToString("yyyy-MM-dd");
 }
-@model ToDoList.Entities.User
+@model ToDoList.Models.CardViewModel;
+
 <div class="nav-bar">
     <div class="nav-logo">
         <a asp-action="Index"><img src="~/img/logo.png" /></a>
     </div>
     <div class="nav-link">
-        <div class="info"><i class="fa-regular fa-user"></i>@Model.Name </div>
-        <span class="info email"><i class="fa-regular fa-envelope"></i>@Model.Email</span>
-        <a asp-action="Index" asp-route-id="10"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i></a>
+        <div class="info"><i class="fa-regular fa-user"></i>@Model.User.Name</div>
+        <span class="info email"><i class="fa-regular fa-envelope"></i>@Model.User.Email</span>
+        <a asp-action="Index" asp-route-id="0"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i></a>
     </div>
 </div>
 
@@ -19,24 +19,48 @@
     <input class="title" placeholder="Title" />
     <textarea class="description" placeholder="Description"></textarea>
     <div class="utilities">
-            <input type="date" onkeydown="return false" value="@StringDate"/>
+            <input type="date" onkeydown="return false" value="@date"/>
         <div>
             <a class="cancel">Cancel</a>
             <input class="add" type="submit" value="+" />
         </div>
     </div>
 </form>
-<form class="form-task">
-    <div>
-        <button class="btn" type="submit">
-            <i class="fa-regular fa-circle fa-xl"></i>
-            <i class="fa-regular fa-circle-check fa-xl"></i>
+@foreach(var item in Model.Card)
+{
+    <form class="form-task" asp-controller="Card" asp-action="Add" asp-route-id="@Model.User.Id">
+        <div class="separet">
+            <button class="btn" type="submit">
+                <i class="fa-regular fa-circle fa-xl"></i>
+                <i class="fa-regular fa-circle-check fa-xl"></i>
+            </button>
+            <span class="title task">@item.Title</span>
+            @if (item.Date.AddDays(20) == DateTime.Now.Date)
+            {
+                <span class="date" style="background: white;color:#da1b1b"><i class="fa-regular fa-calendar-days"></i> Today</span>
+            }
+            else if(item.Date == DateTime.Now.AddDays(1).Date)
+            {
+                <span class="date" style="background:white;color: #ffba62"><i class="fa-regular fa-calendar-days"></i> Tomorrow</span>
+            }
+            else
+            {
+                <span class="date" style="background:white; color: #279f00"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy")</span>
+            }
+        </div>
+        <button type="submit" class="delete">
+             <i class="fa-solid fa-x"></i>
         </button>
-        <span class="title task"> Go to the supermarket</span>
-        <span class="date">⏱ Today</span>
-    </div>
-    <span class="description">buy potato, rice</span>
-</form>
+           
+        @if(item.Description != null)
+        {
+           <span class="description" style="">@item?.Description</span>
+        }
+
+
+    </form>
+}
+
 
 
 
