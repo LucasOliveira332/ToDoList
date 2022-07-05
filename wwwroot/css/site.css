@@ -174,69 +174,76 @@ input, textarea {
     position: relative;
 }
 
-    .form-task .title, .title::placeholder {
-        color: #555555;
-    }
+.form-task .title, .title::placeholder {
+    color: #555555;
+}
 
-    .form-task textarea {
-        resize: none
-    }
+.form-task textarea {
+    resize: none
+}
 
-    .form-task .description {
-        margin-top: 20px;
-        color: #757575;
-    }
+.form-task .description {
+    margin-top: 20px;
+    color: #757575;
+}
 
-    .form-task .utilities {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.form-task .utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .form-task .cancel, .form-task .add {
-        color: #d2d2d2;
-        border-radius: 5px;
-        padding: 5px;
-        cursor: pointer;
-    }
+.form-task .cancel, .form-task .add {
+    color: #d2d2d2;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
 
-    .form-task .add {
-        background: #00ff00;
-        padding: 5px 20px;
-        color: white;
-    }
+.form-task .add {
+    background: #00ff00;
+    padding: 5px 20px;
+    color: white;
+}
 
-    .form-task input, textarea {
-        border: 0 none;
-        outline: 0;
-        font-size: 1em;
-    }
+.form-task input, textarea {
+    border: 0 none;
+    outline: 0;
+    font-size: 1em;
+}
 
-        .form-task input[type="date"] {
-            background: #6c6cff;
-            padding: 4px;
-            border-radius: 5px;
-            color: white;
-        }
+.form-task input[type="date"] {
+    background: #6c6cff;
+    padding: 4px;
+    border-radius: 5px;
+    color: white;
+}
 
-    .form-task ::-webkit-calendar-picker-indicator {
-        background-color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
+.form-task ::-webkit-calendar-picker-indicator {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
 
-    .form-task .btn {
-        border: none;
-        cursor: pointer;
-    }
+.form-task .btn {
+    border: none;
+    cursor: pointer;
+}
 
-    .form-task .date {
-        border-radius: 5px;
-    }
+.form-task .date {
+    border-radius: 5px;
+}
 
-    .form-task .title.task {
-        margin-left: 25px;
-    }
+.form-task .title.task {
+    margin-left: 25px;
+}
+
+.form-task .separet {
+    display: grid;
+    grid-template-columns: auto 1fr 2fr;
+    align-items: center;
+}
+
 
 /*
     End
@@ -276,23 +283,4 @@ input, textarea {
 */
 
 
-.separet {
-    display: grid;
-    grid-template-columns: auto 1fr 2fr;
-    align-items: center;
-}
 
-.delete {
-    position: absolute;
-    top: 30px;
-    background: none;
-    border: none;
-    right: 20px;
-    font-size: 2.2em;
-    color: #f19292;
-    cursor: pointer;
-}
-
-.delete:hover {
-    color: #ff0000;
-}

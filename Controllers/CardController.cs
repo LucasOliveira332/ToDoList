@@ -6,7 +6,7 @@ namespace ToDoList.Controllers
 {
     public class CardController : Controller
     {
-        
+
         private readonly ICardRepository _cardRepository;
 
         public CardController(ICardRepository cardRepository)
@@ -15,10 +15,17 @@ namespace ToDoList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string title, string description, int id)
+        public IActionResult Add(string title, string description, DateTime date, User user)
         {
-            _cardRepository.Add(title, description, id);
-            return RedirectToAction("Index","Home");
+
+            if (description == null)
+            {
+                _cardRepository.Add(title, date, user.Id);
+                return RedirectToAction("Index", "Home", new{ });
+            }
+            _cardRepository.Add(title, description, date, user.Id);
+            return RedirectToAction("Index", "Home", user);
+
         }
     }
 }

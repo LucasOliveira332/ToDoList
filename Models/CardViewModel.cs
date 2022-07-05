@@ -4,7 +4,8 @@ namespace ToDoList.Models
 {
     public class CardViewModel
     {
-        public IEnumerable<Card> Card { get; set; }
+        public IEnumerable<Card> Cards { get; set; }
         public User User { get; set; }
+        public Card Card { get; set; }
     }
 }

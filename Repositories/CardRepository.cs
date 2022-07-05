@@ -19,7 +19,7 @@ namespace ToDoList.Repositories
             List<Card> cards = new();
             var query = "SELECT Title, Description, DateTime " +
                             "FROM TbCard " +
-                            "Where IdUser = @Id";
+                            "Where IdUser = @Id Order by DateTime";
 
             var parameters = new { Id = id };
 
@@ -33,21 +33,21 @@ namespace ToDoList.Repositories
             return cards;
         }
 
-        public void Add(string title, int userId)
+        public void Add(string title, DateTime date, int userId)
         {
-            var query = "INSERT INTO TbCard " +
-                            "VALUES('@Title', '@Description', @UserId)";
+            var query = "INSERT INTO TbCard(title, DateTime, IdUser) " +
+                            "VALUES(@Title, @Date, @UserId)";
 
-            var parameters = new { Title = title, UserId = userId };
+            var parameters = new { Title = title, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
            _session.Connection.Query(query, parameters);
         }
 
-        public void Add(string title, string description, int userId)
+        public void Add(string title, string description, DateTime date, int userId)
         {
             var query = "INSERT INTO TbCard " +
-                            "VALUES('@Title', '@description', @UserId)";
+                            "VALUES(@Title, @Description, @Date, @UserId)";
 
-            var parameters = new { Title = title, Description = description, UserId = userId };
+            var parameters = new { Title = title, Description = description, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
 
             _session.Connection.Query(query, parameters);
         }
