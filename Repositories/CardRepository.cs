@@ -35,10 +35,10 @@ namespace ToDoList.Repositories
 
         public void Add(string title, DateTime date, int userId)
         {
-            var query = "INSERT INTO TbCard(title, DateTime, IdUser) " +
+           var query = "INSERT INTO TbCard(title, DateTime, IdUser) " +
                             "VALUES(@Title, @Date, @UserId)";
 
-            var parameters = new { Title = title, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
+           var parameters = new { Title = title, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
            _session.Connection.Query(query, parameters);
         }
 

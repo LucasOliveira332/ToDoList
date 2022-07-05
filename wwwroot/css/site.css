@@ -5,7 +5,7 @@
 
 body {
     background: white;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Fredoka', cursive;
 }
 
 .form-body {
@@ -16,7 +16,7 @@ body {
 }
 
 input, textarea {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Fredoka', cursive;
 }
 
 
@@ -62,10 +62,6 @@ input, textarea {
     color: white;
 }
 
-    .info.email {
-        margin-right: 10px;
-    }
-
 .form h1 {
     color: blue;
     margin-bottom: 30px;
@@ -107,12 +103,21 @@ input, textarea {
     flex-direction: column;
 }
 
+.form input {
+    color:#757575 
+}
+
 .form-input, .form-submit {
     border: 2px solid black;
     border-radius: 5px;
     font-size: 17px;
     padding: 11px 16px;
     border-color: rgb(127, 133, 141);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: #757575;
 }
 
 .form-label {
@@ -132,14 +137,14 @@ input, textarea {
 .form-submit {
     background: #FFFFFF;
     border-color: blue;
-    color: blue;
+    color: blue !important;
     font-weight: bold;
     cursor: pointer;
 }
 
-    .form-submit:hover {
-        opacity: 0.5;
-    }
+.form-submit:hover {
+    opacity: 0.5;
+}
 
 .form-forgot--password, .form-action {
     color: black;
@@ -159,7 +164,7 @@ input, textarea {
 */
 
 .form-task.space {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .form-task {
@@ -175,7 +180,7 @@ input, textarea {
 }
 
 .form-task .title, .title::placeholder {
-    color: #555555;
+    color: black;
 }
 
 .form-task textarea {
@@ -201,10 +206,17 @@ input, textarea {
 }
 
 .form-task .add {
+    border: none;
     background: #00ff00;
     padding: 5px 20px;
     color: white;
+    opacity: 0.6;
+    cursor: default;
 }
+
+
+
+
 
 .form-task input, textarea {
     border: 0 none;
@@ -231,7 +243,7 @@ input, textarea {
 }
 
 .form-task .date {
-    border-radius: 5px;
+    padding-top: 20px;
 }
 
 .form-task .title.task {
@@ -281,6 +293,10 @@ input, textarea {
 /*
     End
 */
+
+.filter{
+
+}
 
 
 

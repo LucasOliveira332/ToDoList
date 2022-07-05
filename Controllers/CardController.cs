@@ -21,7 +21,7 @@ namespace ToDoList.Controllers
             if (description == null)
             {
                 _cardRepository.Add(title, date, user.Id);
-                return RedirectToAction("Index", "Home", new{ });
+                return RedirectToAction("Index", "Home", user);
             }
             _cardRepository.Add(title, description, date, user.Id);
             return RedirectToAction("Index", "Home", user);

@@ -22,16 +22,19 @@
     <input type="hidden" asp-for="@Model.User.Name"/>
     <input type="hidden" asp-for="@Model.User.Email"/>
 
-    <input name="title"  class="title" placeholder="Title" />
+    <input name="title" id="title" class="title" placeholder="Title" />
     <textarea name="description" class="description" placeholder="Description"></textarea>
     <div class="utilities">
         <input type="date" name="date" id="date" onkeydown="return false" value="@date"/>
         <div>
             <a class="cancel">Cancel</a>
-            <input type="submit" class="add" value="+" />
+            <button type="submit" class="add" id="btn" onkeydown="return false"><i class="fa-solid fa-plus"></i></i></button>
         </div>
     </div>
 </form>
+<div class="filter">
+
+</div>
 @foreach(var item in Model.Cards)
 {
     <form class="form-task" >
@@ -41,22 +44,6 @@
                 <i class="fa-regular fa-circle-check fa-xl"></i>
             </button>
             <span class="title task">@item.Title</span>
-            @if (item.Date == DateTime.Now.Date)
-            {
-                <span class="date" style="background: white; color: green"><i class="fa-regular fa-calendar-days"></i> Today</span>
-            }
-            else if(item.Date == DateTime.Now.AddDays(1).Date)
-            {
-                <span class="date" style="background: white; color: #ffba62"><i class="fa-regular fa-calendar-days"></i> Tomorrow</span>
-            }
-            else if(item.Date < DateTime.Now.Date)
-            {
-                <span class="date" style="background: white; color: red"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy")</span>
-            }
-            else
-            {
-                <span class="date" style="background: white; color: silver"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy")</span>
-            }
         </div>
            
         @if(item.Description != null)
@@ -64,9 +51,27 @@
            <span class="description" style="">@item?.Description</span>
         }
 
-
+        @if (item?.Date == DateTime.Now.Date)
+        {
+            <span class="date" style="background: white; color: green"><i class="fa-regular fa-calendar-days"></i> Today </span>
+        }
+        else if(item?.Date == DateTime.Now.AddDays(1).Date)
+        {
+            <span class="date" style="background: white; color: orange"><i class="fa-regular fa-calendar-days"></i> Tomorrow</span>
+        }
+        else if(item?.Date < DateTime.Now.Date)
+        {
+            <span class="date" style="background: white; color: #d03131"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") <span>(Late)</span></span>
+        }
+        else
+        {
+            <span class="date" style="background: white; color: silver"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") </span>
+        }
     </form>
 }
+
+
+<script src="~/js/site.js"></script>
 
 
 
