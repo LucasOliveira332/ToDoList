@@ -7,13 +7,22 @@ namespace ToDoList.Data
     {
         public IDbConnection Connection { get; }
         public IDbTransaction Transaction { get; set; }
-
         public DbSession()
         {
-            Connection = new SqlConnection("Server=CFNOTE000017\\SQLEXPRESS;Database=ToDoList;Trusted_Connection=True;");
-            Connection.Open();
+            try
+            {
+                Connection = new SqlConnection("Server=CFNOTE000017\\SQLEXPRESS;Database=ToDoList;Trusted_Connection=True;");
+                Connection.Open();
+            }
+            catch(Exception e)
+            {
+                using (Connection)
+                {
+                    Connection.Close();
+                }
+            }
+            
         }
-
     }
 }
 

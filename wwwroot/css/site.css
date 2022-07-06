@@ -103,9 +103,9 @@ input, textarea {
     flex-direction: column;
 }
 
-.form input {
-    color:#757575 
-}
+    .form input {
+        color: #757575
+    }
 
 .form-input, .form-submit {
     border: 2px solid black;
@@ -142,9 +142,9 @@ input:-webkit-autofill {
     cursor: pointer;
 }
 
-.form-submit:hover {
-    opacity: 0.5;
-}
+    .form-submit:hover {
+        opacity: 0.5;
+    }
 
 .form-forgot--password, .form-action {
     color: black;
@@ -210,13 +210,14 @@ input:-webkit-autofill {
     background: #00ff00;
     padding: 5px 20px;
     color: white;
-    opacity: 0.6;
-    cursor: default;
+    cursor: pointer;
+    opacity: 1;
 }
 
-
-
-
+.form-task .add:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
 
 .form-task input, textarea {
     border: 0 none;
@@ -294,9 +295,5 @@ input:-webkit-autofill {
     End
 */
 
-.filter{
-
+.filter {
 }
-
-
-
