@@ -14,18 +14,7 @@ namespace ToDoList.Repositories
             _session = session;
         }
 
-        public User FindById(int id)
-        {
-            User user;
-            var query = "SELECT * FROM TbUser " +
-                            "WHERE Id = @Id";
-
-            var paranmeters = new { Id = id };
-
-            user = _session.Connection.QueryFirstOrDefault<User>(query,paranmeters);
-            return user;
-        }
-        public User UserValidation(User user)
+        public async Task<User> UserValidation(User user)
         {
             User validation;
 
@@ -33,10 +22,10 @@ namespace ToDoList.Repositories
                             "WHERE Email = @Email " +
                             "AND Password = @Password";
 
-            var paranmeters = new {Email = user.Email, Password = user.Password };
+            var paranmeters = new {Email = user.Email.ToLower()!, Password = user.Password };
 
            
-            validation = _session.Connection.QueryFirstOrDefault<User>(query, paranmeters);
+            validation = await _session.Connection.QueryFirstOrDefaultAsync<User>(query, paranmeters);
             return validation;
         }
     }

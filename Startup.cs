@@ -1,4 +1,5 @@
-﻿using ToDoList.Contracts;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using ToDoList.Contracts;
 using ToDoList.Data;
 using ToDoList.Repositories;
 
@@ -11,6 +12,7 @@ namespace SalesMvc
             Configuration = configuration;
         }
         public IConfiguration Configuration { get; }
+        public string CookieAuthenticationDefault { get; private set; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -19,6 +21,13 @@ namespace SalesMvc
             services.AddScoped<DbSession>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICardRepository, CardRepository>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(opt =>
+                {
+                    opt.LoginPath = "/User";
+                    opt.Cookie.Name = "LoginCookie";
+                });
+            services.AddMvc();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)
@@ -34,12 +43,16 @@ namespace SalesMvc
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCookiePolicy();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=User}/{action=Login}/{id?}");
         }
+
     }
 
     public interface IStartup

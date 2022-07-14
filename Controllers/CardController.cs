@@ -21,11 +21,22 @@ namespace ToDoList.Controllers
             if (description == null)
             {
                 _cardRepository.Add(title, date, user.Id);
-                return RedirectToAction("Index", "Home", user);
+                return RedirectToAction("Index", "Home");
             }
             _cardRepository.Add(title, description, date, user.Id);
-            return RedirectToAction("Index", "Home", user);
+            return RedirectToAction("Index", "Home");
 
         }
+
+        [HttpPost]
+        public IActionResult Remove(string id)
+        {
+            var CardId = int.Parse(id);
+            _cardRepository.Remove(CardId);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
     }
 }

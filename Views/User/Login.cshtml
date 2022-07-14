@@ -1,12 +1,26 @@
-﻿@model ToDoList.Entities.User
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <link rel="stylesheet" href="~/icon/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body >
+@model ToDoList.Entities.User
 
 @{
     ViewData["Title"] = "Login";
+     
 }
 
 <div class="nav-bar">
     <div class="nav-logo">
-        <a asp-controller="Home" asp-action="Index"><img src=/img/logo.png /></a>
+        <a asp-controller="Home" asp-action="Index"><img src=/img/Img1.svg /></a>
     </div>
     <div class="nav-link">
         <a class="login" asp-controller="User" asp-action="Login">Log in</a>
@@ -27,5 +41,8 @@
         <a asp-action="Register" class="form-action">Dont have account?<span class="underline">Sign in</span></a>
     </form>
 </div>
+</body>
+</html>
+
 
 

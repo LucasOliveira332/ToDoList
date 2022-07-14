@@ -14,11 +14,14 @@ namespace ToDoList.Data
                 Connection = new SqlConnection("Server=CFNOTE000017\\SQLEXPRESS;Database=ToDoList;Trusted_Connection=True;");
                 Connection.Open();
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 using (Connection)
                 {
-                    Connection.Close();
+                    if(Connection != null)
+                    {
+                        Connection.Close();
+                    }
                 }
             }
             

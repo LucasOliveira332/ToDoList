@@ -4,7 +4,6 @@
 }
 
 body {
-    background: white;
     font-family: 'Fredoka', cursive;
 }
 
@@ -29,7 +28,7 @@ input, textarea {
     justify-content: space-around;
     align-items: center;
     background: #0C2239;
-    padding: 5px;
+    padding: 20px;
 }
 
 .nav-logo img {
@@ -48,6 +47,119 @@ input, textarea {
     margin-left: 20px;
 }
 
+
+
+
+.nav-link .fa-user, .fa-envelope {
+    color: white;
+}
+
+.nav-link {
+    display: flex;
+    position: relative;
+}
+
+.nav-link hr {
+    border: none;
+    border-top: 1px solid #e9e9e9;
+}
+
+.account:hover + .menu {
+    visibility: visible;
+}
+
+.menu:hover {
+    visibility: visible;
+}
+
+.arrow {
+    --pixel: 20px;
+    position: relative;
+    right: 40px;
+    top: 20px;
+    border-bottom: var(--pixel) solid white;
+    border-right: var(--pixel)  solid transparent;
+    border-left: var(--pixel)   solid transparent;
+    z-index: 100000;
+}
+
+.menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 250px;
+    height: 300px;
+    background: #ffffff;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #e9e9e9;
+    box-shadow: 2px 2px 3px 0px #000000aa;
+}
+
+.user-info{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.user-info:hover, .user-info:hover .settings{
+    color: black;
+}
+
+img{
+    width: 40px;
+}
+
+.user:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.account-title {
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #e9e9e9;
+    padding: 10px 15px;
+}
+
+.nav-link button{
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 0.9rem;
+    font-family: 'Fredoka', cursive;
+    padding: 10px 15px;
+    color: #959595;
+}
+
+.user-info {
+    cursor: pointer;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.email{
+    opacity: 0.4;
+}
+
+.settings{
+    cursor: pointer;
+}
+
+.help:hover button, .help{
+    color: blue;
+    cursor: pointer;
+}
+
+.logoff:hover {
+    color: red;
+    cursor: pointer;
+
+}
+
+
 /*
     End
 */
@@ -60,6 +172,7 @@ input, textarea {
 
 .info {
     color: white;
+    text-align: center;
 }
 
 .form h1 {
@@ -103,9 +216,9 @@ input, textarea {
     flex-direction: column;
 }
 
-    .form input {
-        color: #757575
-    }
+.form input {
+    color: #757575
+}
 
 .form-input, .form-submit {
     border: 2px solid black;
@@ -142,9 +255,9 @@ input:-webkit-autofill {
     cursor: pointer;
 }
 
-    .form-submit:hover {
-        opacity: 0.5;
-    }
+.form-submit:hover {
+    opacity: 0.5;
+}
 
 .form-forgot--password, .form-action {
     color: black;
@@ -165,6 +278,7 @@ input:-webkit-autofill {
 
 .form-task.space {
     margin-top: 20px;
+    height: 100px;
 }
 
 .form-task {
@@ -268,11 +382,6 @@ input:-webkit-autofill {
 
 .fa-arrow-right-from-bracket {
     color: red;
-}
-
-.fa-user, .fa-envelope {
-    padding-right: 2em;
-    color: white;
 }
 
 .fa-circle, .fa-circle-check {

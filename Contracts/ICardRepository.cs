@@ -7,5 +7,7 @@ namespace ToDoList.Contracts
         List<Card> FindAll(int id);
         void Add(string title, string description, DateTime date, int userId);
         void Add(string title, DateTime date, int userId);
+
+        void Remove(int id);
     }
 }

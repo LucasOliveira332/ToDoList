@@ -17,25 +17,31 @@ namespace ToDoList.Repositories
         public List<Card> FindAll(int id)
         {
             List<Card> cards = new();
-            var query = "SELECT Title, Description, DateTime " +
+            var query = "SELECT * " +
                             "FROM TbCard " +
-                            "Where IdUser = @Id Order by DateTime";
+                            "Where UserId = @Id Order by DateTime";
 
             var parameters = new { Id = id };
 
-            var dbResult = _session.Connection.Query(query, parameters).ToList();
-
-            foreach(var item in dbResult)
+            try
             {
-                cards.Add(new() { Title = item.Title, Description = item.Description, Date = item.DateTime});
+                var dbResult = _session.Connection.Query(query, parameters).ToList();
+
+                foreach (var item in dbResult)
+                {
+                    cards.Add(new() { Id = item.Id, Title = item.Title, Description = item.Description, Date = item.DateTime });
+                }
+                return cards;
             }
-            
-            return cards;
+            catch
+            {
+                return cards = new List<Card>();
+            }
         }
 
         public void Add(string title, DateTime date, int userId)
         {
-           var query = "INSERT INTO TbCard(title, DateTime, IdUser) " +
+           var query = "INSERT INTO TbCard(title, DateTime, UserId) " +
                             "VALUES(@Title, @Date, @UserId)";
 
            var parameters = new { Title = title, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
@@ -51,6 +57,16 @@ namespace ToDoList.Repositories
 
             _session.Connection.Query(query, parameters);
         }
+
+        public void Remove(int id)
+        {
+            var query = "DELETE TbCard " +
+                            "WHERE Id = @Id";
+
+            var parameters = new { Id = id};
+
+            _session.Connection.Query(query, parameters);
+        } 
     }
 }
 
