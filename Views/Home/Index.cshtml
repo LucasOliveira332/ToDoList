@@ -4,6 +4,7 @@
     var date = DateTime.Now.ToString("yyyy-MM-dd");
 }
 
+
 <html lang="pt">
 <head>
     <meta charset="utf-8" />
@@ -16,95 +17,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>   
-    <div class="nav-bar">
-        <div class="nav-logo">
-            <a asp-action="Index"><img src="~/img/Img1.svg" /></a>
-        </div>
-        <div class="nav-link">
-            <a class="account"><img src="~/img/user.png"/></a>
-            <i class="arrow"></i>
-            <form >
-            <div class="menu">
-                
-                <div>
-                    <div class="account-title">
-                        Acount
-                    </div>
-                    <button class="user">
-                            <div class="user-info">
-                                <img src="~/img/user.png"/>
-                                <div>
-                                    <span>Lucas Gomes</span>
-                                    <span class="email">Lucas@hotmail.com</span>
+    <div id="content">
+        <div class="nav-bar">
+            <div class="nav-logo">
+                <a asp-action="Index"><img src="~/img/Img1.svg" /></a>
+            </div>
+            <div class="nav-link">
+                <a class="picture"><img src="~/img/user.png"/></a>
+                <form>
+                    <div class="menu">
+                            <i class="arrow"></i>
+                            <div class="account-title">Account</div>
+                            <button class="user">
+                                <div class="user-info">
+                                    <img src="~/img/user.png"/>
+                                    <div>
+                                        <span>Lucas Gomes</span>
+                                        <span class="email">Lucas@hotmail.com</span>
+                                    </div>
                                 </div>
+                                <div class="settings"><i class="fa-solid fa-gear"></i> Settings</div>
+                            </button>
+                            <hr />
+                            <div class="help">
+                                <button ><i class="fa-regular fa-circle-question"></i> Help</button>
                             </div>
-                            <div class="settings"><i class="fa-solid fa-gear"></i> Settings</div>
-                    </button>
-                    <hr />
-                    <div class="help">
-                        <button ><i class="fa-regular fa-circle-question"></i> Help</button>
+                            <hr />
+                        <button type="submit" asp-action="LogOut" class="logoff"><i class="fa-solid fa-right-from-bracket"></i> Logoff</button>
                     </div>
-                    <hr />
-                </div>
-                <button type="submit" asp-action="LogOut" class="logoff"><i class="fa-solid fa-right-from-bracket"></i> Logoff</button>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
 
-    <form class="form-task space" asp-controller="Card" asp-action="Add">
-        <input type="hidden" asp-for="@Model.User.Id" />
-        <input name="title" id="title" class="title" onkeydown='key()' onkeyUp='key()' placeholder="Title" />
-        <textarea name="description" class="description" placeholder="Description"></textarea>
-        <div class="utilities">
-            <input type="date" name="date" id="date" onkeydown="return false" value="@date"/>
-            <nav>
-                <a class="cancel">Cancel</a>
-                <button type="submit" class="add" id="btn"><i class="fa-solid fa-plus"></i></button>
-            </nav>
-        </div>
-    </form>
-    <div class="filter">
-    </div>
-    @foreach (var item in Model.Cards)
-    {
-        <form class="form-task" asp-controller="Card" asp-action="Remove">
-            <input type="hidden" name="id" id="id" value="@item.Id" />
-            <div class="separet">
-                <button type="submit" class="btn">
-                    <i class="fa-regular fa-circle fa-xl"></i>
-                    <i class="fa-regular fa-circle-check fa-xl"></i>
-                </button>
-                <span class="title task">@item.Title</span>
+        <form class="form-task space" asp-controller="Card" asp-action="Add">
+            <input type="hidden" asp-for="@Model.User.Id" />
+            <input name="title" id="title" class="title" onkeydown='key()' onkeyUp='key()' placeholder="Title" />
+            <textarea name="description" class="description" placeholder="Description"></textarea>
+            <div class="utilities">
+                <input type="date" name="date" id="date" onkeydown="return false" value="@date"/>
+                <nav>
+                    <a class="cancel">Cancel</a>
+                    <button type="submit" class="add" id="btn"><i class="fa-solid fa-plus"></i></button>
+                </nav>
             </div>
-
-            @if (item.Description != null)
-            {
-                <span class="description" style="">@item?.Description</span>
-            }
-
-            @if (item?.Date == DateTime.Now.Date)
-            {
-                <span class="date" style="background: white; color: green"><i class="fa-regular fa-calendar-days"></i> Today </span>
-            }
-            else if (item?.Date == DateTime.Now.AddDays(1).Date)
-            {
-                <span class="date" style="background: white; color: orange"><i class="fa-regular fa-calendar-days"></i> Tomorrow</span>
-            }
-            else if (item?.Date < DateTime.Now.Date)
-            {
-                <span class="date" style="background: white; color: #d03131"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") <span>(Late)</span></span>
-            }
-            else
-            {
-                <span class="date" style="background: white; color: silver"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") </span>
-            }
         </form>
-    }
+        <div class="filter">
+        </div>
+        @foreach (var item in Model.Cards)
+        {
+            <form class="form-task" asp-controller="Card" asp-action="Remove">
+                <input type="hidden" name="id" id="id" value="@item.Id" />
+                <div class="separet">
+                    <button type="submit" class="btn">
+                        <i class="fa-regular fa-circle fa-xl"></i>
+                        <i class="fa-regular fa-circle-check fa-xl"></i>
+                    </button>
+                    <span class="title task">@item.Title</span>
+                </div>
+
+                @if (item.Description != null)
+                {
+                    <span class="description" style="">@item?.Description</span>
+                }
+
+                @if (item?.Date == DateTime.Now.Date)
+                {
+                    <span class="date" style="background: white; color: green"><i class="fa-regular fa-calendar-days"></i> Today </span>
+                }
+                else if (item?.Date == DateTime.Now.AddDays(1).Date)
+                {
+                    <span class="date" style="background: white; color: orange"><i class="fa-regular fa-calendar-days"></i> Tomorrow</span>
+                }
+                else if (item?.Date < DateTime.Now.Date)
+                {
+                    <span class="date" style="background: white; color: #d03131"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") <span>(Late)</span></span>
+                }
+                else
+                {
+                    <span class="date" style="background: white; color: silver"><i class="fa-regular fa-calendar-days"></i> @item.Date.ToString("dd/MM/yy") </span>
+                }
+            </form>
+        }
+    </div>
+    
+    <script src="~/js/site.js"></script>
 </body>
 </html>
-<script src="~/js/site.js"></script>
-
 
 
 

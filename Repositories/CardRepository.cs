@@ -17,9 +17,9 @@ namespace ToDoList.Repositories
         public List<Card> FindAll(int id)
         {
             List<Card> cards = new();
-            var query = "SELECT * " +
-                            "FROM TbCard " +
-                            "Where UserId = @Id Order by DateTime";
+            var query = @"SELECT * 
+                            FROM TbCard 
+                            Where UserId = @Id Order by DateTime";
 
             var parameters = new { Id = id };
 
@@ -41,8 +41,8 @@ namespace ToDoList.Repositories
 
         public void Add(string title, DateTime date, int userId)
         {
-           var query = "INSERT INTO TbCard(title, DateTime, UserId) " +
-                            "VALUES(@Title, @Date, @UserId)";
+           var query = @"INSERT INTO TbCard(title, DateTime, UserId) 
+                            VALUES(@Title, @Date, @UserId)";
 
            var parameters = new { Title = title, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
            _session.Connection.Query(query, parameters);
@@ -50,8 +50,8 @@ namespace ToDoList.Repositories
 
         public void Add(string title, string description, DateTime date, int userId)
         {
-            var query = "INSERT INTO TbCard " +
-                            "VALUES(@Title, @Description, @Date, @UserId)";
+            var query = @"INSERT INTO TbCard
+                            VALUES(@Title, @Description, @Date, @UserId)";
 
             var parameters = new { Title = title, Description = description, Date = date.ToString("yyyy-MM-dd"), UserId = userId };
 
@@ -60,8 +60,8 @@ namespace ToDoList.Repositories
 
         public void Remove(int id)
         {
-            var query = "DELETE TbCard " +
-                            "WHERE Id = @Id";
+            var query = @"DELETE TbCard 
+                            WHERE Id = @Id";
 
             var parameters = new { Id = id};
 
